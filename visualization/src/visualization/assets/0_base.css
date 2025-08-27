@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+#choose-id {
+    position: absolute;
+    z-index: 999;
+    width: 10vw;
+    top: 0;
+    right: 0;
+}
+
+#choose-id .Select-control {
+    border-radius: 0;
+}
+
+.Select-value {
+    padding-left: 2vw !important;
+}
+
+.Select-menu-outer {
+    padding: 0 2vw;
+}

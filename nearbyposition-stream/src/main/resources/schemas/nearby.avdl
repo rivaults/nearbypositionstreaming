@@ -1,0 +1,15 @@
+/*
+ * Comment for license information.
+ */
+// The default namespace for all named schemata in the file. Defaults to the null namespace if omitted.
+namespace org.beam.dto;
+
+// The main schema (optional); any field type is valid. If specified, the file is equivalent to a .avsc file.
+schema NearbyDTO;
+
+record NearbyDTO {
+	int id;
+	int nearby;
+	long timestamp;
+	long event;
+}

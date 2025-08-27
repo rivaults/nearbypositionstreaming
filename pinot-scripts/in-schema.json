@@ -1,0 +1,33 @@
+{
+  "schemaName": "in_gps",
+  "dimensionFieldSpecs": [
+    {
+      "name": "id",
+      "dataType": "LONG"
+    },
+    {
+      "name": "timestamp",
+      "dataType": "LONG"
+    },
+    {
+      "name": "latitude",
+      "dataType": "DOUBLE"
+    },
+    {
+      "name": "longitude",
+      "dataType": "DOUBLE"
+    },
+    {
+      "name": "altitude",
+      "dataType": "INT"
+    }
+  ],
+  "metricFieldSpecs": [],
+  "dateTimeFieldSpecs": [{
+    "name": "event",
+    "dataType": "TIMESTAMP",
+    "format" : "1:MILLISECONDS:EPOCH",
+    "granularity": "1:MILLISECONDS"
+  }],
+  "primaryKeyColumns": ["id", "timestamp"]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaName": "out_nearby",
+  "dimensionFieldSpecs": [
+    {
+      "name": "id",
+      "dataType": "LONG"
+    },
+    {
+      "name": "nearby",
+      "dataType": "LONG"
+    }
+  ],
+  "metricFieldSpecs": [],
+  "dateTimeFieldSpecs": [{
+      "name": "event",
+      "dataType": "TIMESTAMP",
+      "format" : "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MILLISECONDS"
+    },
+    {
+      "name": "timestamp",
+      "dataType": "TIMESTAMP",
+      "format" : "1:MILLISECONDS:EPOCH",
+      "granularity": "1:SECONDS"
+    }
+  ],
+  "primaryKeyColumns": ["id", "nearby", "timestamp"]
+}

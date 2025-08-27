@@ -1,0 +1,13 @@
+{
+  "name": "point",
+  "namespace": "org.avro.in",
+  "type": "record",
+  "fields": [
+    {"name": "id", "type": "int"},
+    {"name": "timestamp",  "type": "long"},
+    {"name": "latitude", "type": "double"},
+    {"name": "longitude", "type": "double"},
+    {"name": "altitude", "type": "int"},
+    {"name": "event", "type" : "long"}
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "tableName": "in_gps",
+  "tableType": "REALTIME",
+  "segmentsConfig": {
+    "timeColumnName": "event",
+    "timeType": "MILLISECONDS",
+    "schemaName": "in_gps",
+    "replicasPerPartition": "1"
+  },
+  "tenants": {},
+  "tableIndexConfig": {
+    "loadMode": "MMAP",
+    "invertedIndexColumns": ["id", "timestamp"],
+    "rangeIndexColumns": [
+            "event"
+    ],
+    "streamConfigs": {
+      "streamType": "kafka",
+      "stream.kafka.consumer.type": "lowLevel",
+      "stream.kafka.topic.name": "in-gps",
+      "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+      "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.inputformat.avro.confluent.KafkaConfluentSchemaRegistryAvroMessageDecoder",
+      "stream.kafka.decoder.prop.format": "AVRO",
+      "stream.kafka.decoder.prop.schema.registry.rest.url": "http://schemaregistry:8085",
+      "stream.kafka.broker.list": "broker:9092",
+      "stream.kafka.decoder.prop.schema.registry.schema.name": "in-gps-value",
+      "realtime.segment.flush.threshold.rows": "0",
+      "realtime.segment.flush.threshold.time": "1h",
+      "realtime.segment.flush.threshold.segment.size": "50M",
+      "stream.kafka.consumer.prop.auto.offset.reset": "smallest"
+    }
+  },
+  "metadata": {
+    "customConfigs": {}
+  },
+  "upsertConfig": {
+    "mode": "FULL"
+  },
+  "routing": {
+    "instanceSelectorType": "strictReplicaGroup"
+  },
+  "fieldConfigList": [
+    {
+      "name": "event",
+      "timestampConfig": {
+        "granularities": [
+          "MILLISECOND",
+          "SECOND",
+          "MINUTE",
+          "HOUR"
+        ]
+      }
+    },
+    {
+      "name": "id",
+      "encodingType": "RAW",
+      "indexes": {
+        "bloom": {}
+      }
+    }
+  ]
+}
